@@ -1,0 +1,11 @@
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.float-r {
+    float: right;
+}
+
+.curor-resize {
+    cursor: e-resize;
+}

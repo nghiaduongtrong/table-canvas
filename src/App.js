@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import TableCanvas from './components/TableCanvas'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  data = [
+  ]
+
+  genratorData = () => {for (let i = 0; i <= 5000; i++) {
+    this.data.push({
+      "id": i,
+      "name": "arcu.Morbi@ipsum.ca",
+      "phone": "09 96 07 84 25"
+    },) 
+  }}
+
+  componentDidMount() {
+    this.genratorData();
+  }
+  thead = [
+    { lable: "ID", width: 100, target: 'id', onClick: () => {} },
+    { lable: "NAME", width: 500, target: 'name', onClick: () => {} },
+    { lable: "PHONE", width: 100, target: 'phone' },
+  ]
+  render() {
+    return (
+      <div style={{margin: 100}}>
+        <TableCanvas
+          data={this.data}
+          thead={this.thead}
+          tableStriped
+        />
+      </div>
+    )
+  }
 }
-
-export default App;
